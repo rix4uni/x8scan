@@ -56,11 +56,11 @@ func processURL(url string, method string, wordlistPath string, jsonFlag bool, v
 	method = strings.TrimSpace(method)
 
 	// Build the x8 command with JSON output format
-	args := []string{"-u", url, "-X", method, "-w", wordlistPath, "--disable-progress-bar", "--output-format", "json"}
+	args := []string{"-u", url, "-X", method, "-w", wordlistPath, "--disable-progress-bar", "--reflected-only", "--output-format", "json"}
 	cmd := exec.Command("x8", args...)
 
 	// Build command string for display/logging
-	command := fmt.Sprintf("x8 -u %s -X %s -w %s --disable-progress-bar --output-format json", url, method, wordlistPath)
+	command := fmt.Sprintf("x8 -u %s -X %s -w %s --disable-progress-bar --reflected-only --output-format json", url, method, wordlistPath)
 
 	// Capture the command's output
 	var out bytes.Buffer
